@@ -52,3 +52,16 @@ This is a simple config to encrypt password and send to kms, kms will decrypt an
 
 <h3> Improvement </h3>
 <p> - XXXXXX </p>
+
+<h3> SecretManager </h3>
+<p> - From Task definition on ECS, you have the posibility to call the value and insert the value as environment variable </p>
+<p> (*) The value for the secret name in the task definition must match the name you specified for the secret name when the secret was created. </p>
+<pre>{
+        "secrets": [
+        {
+             "valueFrom": "arn:aws:secretsmanager:region:aws_account_id:secret:username_value-u9bH6K",
+             "name": "password_value"
+        }
+        ]
+}</pre>
+<p>More info: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-tutorial.html </P>
